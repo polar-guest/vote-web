@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>晴桦</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="css/mui.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<style>
+			* {
+				touch-action: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			
+			<h1 class="mui-title">投票</h1>
+			<samp onclick="tologin()" class="mui-icon mui-icon-micoff mui-pull-right">
+		</header>
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" href="#tabbar">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-chat" id="shizhan">
+				<span class="mui-icon mui-icon-paperplane"></span>
+				<span class="mui-tab-label">奖品</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-contact">
+				<span class="mui-icon mui-icon-compose"></span>
+				<span class="mui-tab-label">报名</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-map">
+				<span class="mui-icon mui-icon-bars"></span>
+				<span class="mui-tab-label">排名</span>
+			</a>
+		</nav>
+		<div class="mui-content" style="padding: 44px 0px;">
+			<div id="slider" class="mui-slider" data-slider="1">
+			<div class="mui-slider-group mui-slider-loop" style="transform: translate3d(-320px, 0px, 0px) translateZ(0px); transition-duration: 0ms;">
+				<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+				<div class="mui-slider-item mui-slider-item-duplicate">
+					<a href="#">
+						<img src="images/yuantiao.jpg">
+					</a>
+				</div>
+				<!-- 第一张 -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="images/shuijiao.jpg">
+					</a>
+				</div>
+				<!-- 第二张 -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="images/muwu.jpg">
+					</a>
+				</div>
+				<!-- 第三张 -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="images/cbd.jpg">
+					</a>
+				</div>
+				<!-- 第四张 -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="images/yuantiao.jpg">
+					</a>
+				</div>
+				<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+				<div class="mui-slider-item mui-slider-item-duplicate">
+					<a href="#">
+						<img src="images/shuijiao.jpg">
+					</a>
+				</div>
+			</div>
+			<div class="mui-slider-indicator">
+				<div class="mui-indicator mui-active"></div>
+				<div class="mui-indicator"></div>
+				<div class="mui-indicator"></div>
+				<div class="mui-indicator"></div>
+			</div>
+		</div>
+			
+			
+			<div id="tabbar-with-chat" class="mui-control-content mui-scroll-wrapper">
+					<div class="mui-input-row mui-search" onclick="onseek()">
+						<input autofocus type="search" id="searchs" class="mui-input-clear whiteBg" placeholder="搜你想要的" readonly="readonly">
+					</div>
+				<div class="title">真实案例</div>
+				<ul class="mui-table-view mui-table-view-chevron" id="type1"></ul>
+			</div>
+			<div id="tabbar-with-contact" class="mui-control-content mui-scroll-wrapper">
+				<a href="seekmain.html">
+					<div class="mui-input-row mui-search">
+						<input autofocus type="search" id="searchs" class="mui-input-clear whiteBg" placeholder="搜你想要的" readonly="readonly">
+					</div>
+				</a>
+				<div class="title">聊天指导.</div>
+				<ul class="mui-table-view" id="type2"></ul>
+			</div>
+			<div id="tabbar-with-map" class="mui-control-content mui-scroll-wrapper">
+					<div class="mui-input-row mui-search" onclick="onseek()">
+						<input autofocus type="search" id="searchs" class="mui-input-clear whiteBg" placeholder="搜你想要的" readonly="readonly">
+					</div>
+				<div class="title">知识补充.</div>
+				<ul class="mui-table-view" id="type3"> </ul>
+			</div>
+		</div>
+
+	</body>
+	<script src="js/mui.js"></script>
+	<script src="js/app.js"></script>
+
+	<script>
+		mui.init({
+				swipeBack:true //启用右滑关闭功能
+			});
+			var slider = mui("#slider");
+			document.getElementById("switch").addEventListener('toggle', function(e) {
+				if (e.detail.isActive) {
+					slider.slider({
+						interval: 5000
+					});
+				} else {
+					slider.slider({
+						interval: 0
+					});
+				}
+			});
+		
+		onseek=function(){
+			mui.openWindow({
+				url: "seekmain.html",
+				id: "seekmain",
+			});
+		}
+
+		window.onload = function() {
+			getTalkSort();
+			getcod(1);
+			getcod(2);
+			getcod(3);
+		};
+		/*给ul 下面的li 添加点击事件*/
+		tologin=function(){
+			
+			var Token = localStorage.getItem("Token");
+			if(isNull(Token)) {//不为空
+				mui.openWindow({
+					url: "login.html",
+					id: "login",
+				});
+				return;
+			}
+			duAjax("user/isLogin/"+Token,"",ajax_Get,function(data){
+//				mui.toast(data)
+				if(data.code==20000){
+					if(isNull(data.result)) {//不为空
+						mui.openWindow({
+							url: "login.html",
+							id: "login",
+						});
+					}else{
+						mui.openWindow({
+							url: "setting.html",
+							id: "setting",
+						});
+					}
+				}
+			});
+		}
+		
+
+		/*给ul 下面的li 添加点击事件*/
+		mui('#type1').on("tap", "li", function() {
+			//获取html页面中data-item中的item对象
+			var obj = this.getAttribute("id");
+			if(null != obj && obj != '' && obj != undefined) {
+				localStorage.setItem("wzid", obj)
+				mui.openWindow({
+					url: "textview.html",
+					id: "textview",
+				});
+			}
+		});
+		/*给ul 下面的li 添加点击事件*/
+		mui('#type2').on("tap", "li", function() {
+			//获取html页面中data-item中的item对象
+			var obj = this.getAttribute("id");
+			if(null != obj && obj != '' && obj != undefined) {
+				localStorage.setItem("wzid", obj)
+				mui.openWindow({
+					url: "textview.html",
+					id: "textview",
+				});
+			}
+		});
+		/*给ul 下面的li 添加点击事件*/
+		mui('#type3').on("tap", "li", function() {
+			//获取html页面中data-item中的item对象
+			var obj = this.getAttribute("id");
+			if(null != obj && obj != '' && obj != undefined) {
+				localStorage.setItem("wzid", obj)
+				mui.openWindow({
+					url: "textview.html",
+					id: "textview",
+				});
+			}
+		});
+
+		function getTalkSort() {
+			var Token = localStorage.getItem("Token");
+			mui.get(serviceurl + 'app/getTalkSort', {
+				'toke': Token
+			}, function(data) {
+				if(data.code == 20000) {
+					var cls = data.result.clas;
+					var clss = data.result.class;
+					var str = "";
+					for(var i = 0; i < cls.length; i++) {
+						var clsVal = cls[i];
+						str += "<ul class=mui-table-view> <li class=\"mui-table-view-cell\">" + clsVal.scname + " </li></ul>" +
+							"<ul class=\"mui-table-view mui-grid-view mui-grid-9\">";
+						for(var j = 0; j < clss.length; j++) {
+							var clssVal = clss[j];
+							if(clsVal.scid == clssVal.scid) {
+								str += "<li class=mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3>" +
+									"<a onclick=\"toTalkSortList(" + clssVal.lcid + ")\"> <div class=\"mui-media-body\" style=\"text-overflow:inherit\">" +
+									clssVal.lcname + "</div> </a> </li>";
+							}
+						}
+						str += "</ul>";
+					}
+					document.getElementById('TalkSort').innerHTML = str;
+				}
+			});
+		}
+
+		toTalkSortList = function(ids) {
+			//获取html页面中data-item中的item对象
+			if(null != ids && ids != '' && ids != undefined) {
+				localStorage.setItem("flid", ids)
+				mui.openWindow({
+					url: "talksort.html",
+					id: "talksort",
+				});
+			}
+			mui.toast(ids);
+		}
+
+		function getcod(type) {
+			var Token = localStorage.getItem("Token");
+			mui.post(serviceurl + 'app/getGuidance', {
+				'type': type,
+				'toke': Token
+			}, function(data) {
+				if(data.code == 10000) {
+					mui.toast("登录失效");
+					return true;
+				}
+				var array = data.result;
+				var str = "";
+				mui.each(array, function(index, item) {
+					if(type == 1) {
+						str += " <li class=\"mui-table-view-cell mui-media\" id='" + item.postsid + "'>" +
+							"<a class=\"mui-navigate-right\" >" +
+							"<img class=\"mui-media-object mui-pull-left\" src=" + serviceurl + item.breviarypicture + ">" +
+							"<div class=\"mui-media-body\">" + item.posttitle +
+							"<p class=\"mui-ellipsis\">" + item.postexcerpt + "</p>" +
+							"</div></a> </li>";
+						document.getElementById('type1').innerHTML = str;
+					} else if(type == 2) {
+						str += "<li class=\"mui-table-view-cell mui-media\" id='" + item.postsid + "'>" +
+							"<img class=\"mui-media-object mui-pull-right\" src=" + serviceurl + item.breviarypicture + ">" +
+							"<div class=\"mui-media-body\">" + item.posttitle +
+							"<p class=\"mui-ellipsis\">" + item.postexcerpt + "</p>" +
+							"</div>  </li>";
+						document.getElementById('type2').innerHTML = str;
+					} else if(type == 3) {
+						str += "<li class=\"mui-table-view-cell mui-media\" id=\"" + item.postsid + "\">" +
+							"<a class=\"mui-navigate-right\" >" +
+							"<img class=\"mui-media-object mui-pull-left\" src=" + serviceurl + item.breviarypicture + ">" +
+							"<div class=\"mui-media-body\">" + item.posttitle +
+							"<p class=\"mui-ellipsis\">" + item.postexcerpt + "</p>" +
+							"</div> </a> </li>";
+						document.getElementById('type3').innerHTML = str;
+					}
+				})
+			}, 'json');
+		}
+	</script>
+
+</html>

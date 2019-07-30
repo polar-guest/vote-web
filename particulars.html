@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">深圳最美咻咻咻</h1>
+			<samp onclick="tologin()" class="mui-icon mui-icon-micoff mui-pull-right">
+		</header>
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" href="#tabbar">
+				<span class="mui-icon mui-icon mui-icon-star"></span>
+				<span class="mui-tab-label">投票</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-chat">
+				<span class="mui-icon mui-icon-paperplane"></span>
+				<span class="mui-tab-label">送礼</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-contact">
+				<span class="mui-icon mui-icon-compose"></span>
+				<span class="mui-tab-label">海报</span>
+			</a>
+		</nav>
+		<div class="mui-content">
+			<!--第一页-->
+			<div id="tabbar" class="mui-control-content mui-active" style="text-align: center;">				
+				<div class="mui-slider">
+				  <div class="mui-slider-group ">
+				    <div class="mui-slider-item"><a href="#"><img src="images/yuantiao.jpg"></a></div>
+				    <div class="mui-slider-item"><a href="#"><img src="images/shuijiao.jpg"></a></div>
+				    <div class="mui-slider-item"><a href="#"><img src="images/muwu.jpg"></a></div>
+				    <div class="mui-slider-item"><a href="#"><img src="images/cbd.jpg"></a></div>
+				  </div>
+				</div>
+				<div class="mui-card">
+					<div class="mui-card-content">
+						<div class="mui-card-content-inner">
+							<h4>商家名称</h4>
+	        				<div class="title" style="text-align: center;">	编号:123.</div>
+	        				<hr />
+	        				<p>商家详情XXXXXXXXXXXXXXXXXXXXXXXXXXXX<br />XXXXXXXXXXXXXXXXXXXXXXXXXX</p>
+	        				<p>商家详情XXXXXXXXXXXXXXXXXXXXXXXXXXXX<br />XXXXXXXXXXXXXXXXXXXXXXXXXX</p>
+	        				<p>商家详情XXXXXXXXXXXXXXXXXXXXXXXXXXXX<br />XXXXXXXXXXXXXXXXXXXXXXXXXX</p>
+						</div>
+						<ul class="mui-table-view mui-grid-view mui-grid-9">
+				            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+				                   <div class="mui-media-body">当前票数</div>
+				             <span>22</span></li>
+				            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+				                    <div class="mui-media-body">票数榜</div><span>22</span></li>
+				            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"> 
+				                    <div class="mui-media-body">距上一名差</div>
+				                    <span>22</span>
+				            </li>
+				        </ul>
+						<div class="mui-card-header mui-card-media" style="height:40vw;background-image:url(images/cbd.jpg)"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			
+			
+			//获得slider插件对象
+			var gallery = mui('.mui-slider');
+			gallery.slider({
+			  interval:5000//自动轮播周期，若为0则不自动播放，默认为0；
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="../css/app.css"/>
+		<style>
+			
+			.title{
+				margin: 20px 15px 10px;
+				color: #6d6d72;
+				font-size: 15px;
+			}
+			
+			.oa-contact-cell.mui-table .mui-table-cell {
+				padding: 11px 0;
+				vertical-align: middle;
+			}
+			
+			.oa-contact-cell {
+				position: relative;
+				margin: -11px 0;
+			}
+	
+			.oa-contact-avatar {
+				width: 75px;
+			}
+			.oa-contact-avatar img {
+				border-radius: 50%;
+			}
+			.oa-contact-content {
+				width: 100%;
+			}
+			.oa-contact-name {
+				margin-right: 20px;
+			}
+			.oa-contact-name, oa-contact-position {
+				float: left;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">深圳最美咻咻咻</h1>
+			<samp onclick="tologin()" class="mui-icon mui-icon-micoff mui-pull-right">
+		</header>
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" href="#tabbar">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-chat">
+				<span class="mui-icon mui-icon-paperplane"></span>
+				<span class="mui-tab-label">奖品</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-contact">
+				<span class="mui-icon mui-icon-compose"></span>
+				<span class="mui-tab-label">报名</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-map">
+				<span class="mui-icon mui-icon-bars"></span>
+				<span class="mui-tab-label">排名</span>
+			</a>
+		</nav>
+		<div class="mui-content">
+			<!--第一页-->
+			<div id="tabbar" class="mui-control-content mui-active" style="text-align: center;">				
+				<div class="mui-slider">
+				  <div class="mui-slider-group ">
+				    <div class="mui-slider-item"><a href="#"><img src="images/yuantiao.jpg"></a></div>
+				    <div class="mui-slider-item"><a href="#"><img src="images/shuijiao.jpg"></a></div>
+				    <div class="mui-slider-item"><a href="#"><img src="images/muwu.jpg"></a></div>
+				    <div class="mui-slider-item"><a href="#"><img src="images/cbd.jpg"></a></div>
+				  </div>
+				</div>
+				<div class="mui-card">
+					<div class="mui-card-content">
+						<div class="mui-card-content-inner">
+							<ul class="mui-table-view mui-grid-view mui-grid-9">
+					            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+					                    <span >22</span>
+					                    <div class="mui-media-body">参与选手</div></a></li>
+					            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+					                    <span >22</span>
+					                    <div class="mui-media-body">累计票数</div></a></li>
+					            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+					                    <span >22</span>
+					                    <div class="mui-media-body">人气</div></a></li>
+					        </ul>
+	        				<div class="title" style="text-align: center;">结束倒计时6天2时8分20秒我要报名.</div>
+						</div>
+					</div>
+				</div>
+				<button type="button"  class="mui-btn mui-btn-danger"  style="width: 75%;">我要报名</button>
+				<br />
+				<div class="mui-card">
+					<div class="mui-card-content">
+						<div class="mui-card-content-inner">
+	        				活动时间:2019-7-25 20:37:08<br />
+        					活动时间:2019-7-25 20:37:08
+						</div>
+					</div>
+				</div>
+				
+				<form class="mui-input-group">
+				    <div class="mui-input-row">
+				        <input type="text" class="mui-input-clear" placeholder="输入编号或者选手名称">
+	    				<button type="button"  class="mui-btn mui-btn-danger">我要报名</button>
+				    </div>
+				</form>
+				<br />
+				<ul class="mui-table-view mui-grid-view">
+			        <li class="mui-table-view-cell mui-media mui-col-xs-6">
+			            <a href="#">
+			                <img class="mui-media-object" src="images/yuantiao.jpg">
+			                <div class="mui-media-body">幸福就是可以一起睡觉</div></a></li>
+			        <li class="mui-table-view-cell mui-media mui-col-xs-6">
+			            <a href="#">
+			                <img class="mui-media-object" src="images/yuantiao.jpg">
+			                <div class="mui-media-body">想要一间这样的木屋，静静的喝咖啡</div></a></li>
+			        <li class="mui-table-view-cell mui-media mui-col-xs-6">
+			            <a href="#"><img class="mui-media-object" src="images/yuantiao.jpg">
+			                <div class="mui-media-body">Color of SIP CBD</div></a></li>
+			        <li class="mui-table-view-cell mui-media mui-col-xs-6">
+			            <a href="#">
+			                <img class="mui-media-object" src="images/yuantiao.jpg">
+			                <div class="mui-media-body">静静看这世界</div></a></li>
+			    </ul>
+				<div class="title">没有更多选手了~</div>
+			</div>
+			<!--第二页-->
+			<div id="tabbar-with-chat" class="mui-control-content">
+				<div id="tabbar" class="mui-control-content mui-active" style="text-align: center;">				
+				<div class="mui-slider">
+				  <div class="mui-slider-group ">
+				    <div class="mui-slider-item"><a href="#"><img src="images/yuantiao.jpg"></a></div>
+				    <div class="mui-slider-item"><a href="#"><img src="images/shuijiao.jpg"></a></div>
+				    <div class="mui-slider-item"><a href="#"><img src="images/muwu.jpg"></a></div>
+				    <div class="mui-slider-item"><a href="#"><img src="images/cbd.jpg"></a></div>
+				  </div>
+				</div>
+				
+				<div class="mui-card">
+					<div class="mui-card-content">
+						<div class="mui-card-content-inner">
+	        				活动时间:2019-7-25 20:37:08<br />
+        					活动时间:2019-7-25 20:37:08
+						</div>
+					</div>
+				</div>
+				
+				<div class="mui-card">
+					<div class="mui-card-content">
+						<div class="mui-card-content-inner">
+							<h4>奖品设置</h4>
+	        				<hr />
+        					活动时间:2019-7-25 20:37:08
+        					<br /><br /><br />
+        					<h4>活动介绍</h4>
+	        				<hr />
+        					活动时间:2019-7-25 20:37:08
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--第三页-->
+			<div id="tabbar-with-contact" class="mui-control-content">
+				<div class="mui-card">
+					<div class="mui-card-content">
+						<div class="mui-card-content-inner">
+	        				活动时间:2019-7-25 20:37:08<br />
+        					活动时间:2019-7-25 20:37:08
+						</div>
+					</div>
+				</div>
+				<form class="mui-input-group">
+				    <div class="mui-input-row">
+				        <label>名称</label>
+				    <input type="text" class="mui-input-clear" placeholder="请输入名称">
+				    </div>
+				    <div class="mui-input-row">
+				        <label>简介</label>
+				        <input type="text" class="mui-input-clear" placeholder="请输入简介">
+				    </div>
+				    <div class="mui-input-row">
+				        <label>联系电话</label>
+				        <input type="text" class="mui-input-clear" placeholder="请输入联系电话">
+				    </div>
+				    <div class="mui-button-row">
+				        <button type="button" class="mui-btn mui-btn-primary" >确认</button>
+				        <button type="button" class="mui-btn mui-btn-danger" >取消</button>
+				    </div>
+				</form>
+				
+			</div>
+			<div id="tabbar-with-map" class="mui-control-content">
+				<div class="mui-slider">
+				  <div class="mui-slider-group ">
+				    <div class="mui-slider-item"><a href="#"><img src="images/yuantiao.jpg"></a></div>
+				    <div class="mui-slider-item"><a href="#"><img src="images/shuijiao.jpg"></a></div>
+				    <div class="mui-slider-item"><a href="#"><img src="images/muwu.jpg"></a></div>
+				    <div class="mui-slider-item"><a href="#"><img src="images/cbd.jpg"></a></div>
+				  </div>
+				</div>
+				<div class="mui-card">
+					<div class="mui-card-content">
+						<div class="mui-card-content-inner">
+							<ul class="mui-table-view mui-grid-view mui-grid-9">
+					            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+					                    <span >22</span>
+					                    <div class="mui-media-body">参与选手</div></a></li>
+					            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+					                    <span >22</span>
+					                    <div class="mui-media-body">累计票数</div></a></li>
+					            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+					                    <span >22</span>
+					                    <div class="mui-media-body">人气</div></a></li>
+					        </ul>
+	        				<div class="title" style="text-align: center;">结束倒计时6天2时8分20秒我要报名.</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="mui-card"  style="text-align: center;">
+					<br /><h4>排行榜</h4>
+					<hr />
+					<ul class="mui-table-view">
+					    <li class="mui-table-view-cell">
+					    	 <div class="mui-row">
+						        <div class="mui-col-sm-1 mui-col-xs-1"> 100</div>
+						        <div class="mui-col-sm-8 mui-col-xs-8">深圳最美xxxxxx </div>
+						        <div class="mui-col-sm-3 mui-col-xs-3"> 100000票</div>
+						    </div>
+					    </li>
+					    <li class="mui-table-view-cell">
+					    	<div class="mui-row">
+						        <div class="mui-col-sm-1 mui-col-xs-1"> 100</div>
+						        <div class="mui-col-sm-8 mui-col-xs-8">深圳最美xxxxxx </div>
+						        <div class="mui-col-sm-3 mui-col-xs-3"> 100000票</div>
+						    </div>
+					    </li>
+					    <li class="mui-table-view-cell">
+					    	<div class="mui-row">
+						        <div class="mui-col-sm-1 mui-col-xs-1"> 100</div>
+						        <div class="mui-col-sm-8 mui-col-xs-8">深圳最美xxxxxx </div>
+						        <div class="mui-col-sm-3 mui-col-xs-3"> 100000票</div>
+						    </div>
+					    </li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/mui.min.js"></script>
+	<script>
+		mui.init({
+			swipeBack:true //启用右滑关闭功能
+		});
+		
+		window.addEventListener('touchmove', func, { passive: false })
+
+		//获得slider插件对象
+		var gallery = mui('.mui-slider');
+		gallery.slider({
+		  interval:5000//自动轮播周期，若为0则不自动播放，默认为0；
+		});
+	</script>
+</html>
